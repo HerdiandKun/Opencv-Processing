@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1475596913 source:e:\kuliah\sem3\pcd\g64154018_tugas\main.cpp
+	<cv.h>
+	<highgui.h>
+	<math.h>
+	"lib/threshold.h"
+	"lib/negative.h"
+	"lib/contras.h"
+	"lib/cropping.h"
+
+1475593280 e:\kuliah\sem3\pcd\g64154018_tugas\lib\threshold.h
+
+1475557008 e:\kuliah\sem3\pcd\g64154018_tugas\lib\negative.h
+
+1475595425 e:\kuliah\sem3\pcd\g64154018_tugas\lib\contras.h
+	<iostream>
+
+1475557496 e:\kuliah\sem3\pcd\g64154018_tugas\lib\cropping.h
+

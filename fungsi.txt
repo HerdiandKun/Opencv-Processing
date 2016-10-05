@@ -1,0 +1,73 @@
+IplImage *greyscale(IplImage *img){
+    IplImage *red = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,1);
+    IplImage *green = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,1);
+    IplImage *blue = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,1);
+    CvSize ukuran = cvGetSize(img);
+
+    cvSplit(img,blue,green,red,NULL);
+    return red;
+}
+
+IplImage *treshold(IplImage *img){
+    IplImage *grey = greyscale(img);
+    IplImage *bin = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,1);
+    CvSize ukuran = cvGetSize(grey);
+
+    for(int i=0;i<ukuran.height;i++){
+        for(int j=0;j<ukuran.width;j++){
+            int newpix = 0;
+            int pixel = cvGetReal2D(grey,i,j);
+                if(pixel < 150){
+                    newpix = 0;
+                }
+                else {
+                    newpix = 255;
+                }
+            cvSetReal2D(bin,i,j,newpix);
+                //cout << newpix << " ";
+        }
+        //cout << endl;
+    }
+    return bin;
+}
+IplImage *negative(IplImage *img){
+    IplImage *neg = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,3);
+    CvSize ukuran = cvGetSize(img);
+     unsigned char chan[3];
+
+    for(int i=0;i<ukuran.height;i++){
+        for(int j=0;j<ukuran.width;j++){
+            CvScalar pixelVal = cvGet2D( img, i, j);
+            for(int k=0;k<3;k++){
+            chan[k] = 255-pixelVal.val[k];
+            neg->imageData[i*neg->widthStep+3*j+k]=chan[k];
+            }
+        }
+    }
+    return neg;
+}
+IplImage *contras(IplImage *img, double alpha){
+    IplImage *kon = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,3);
+    Mat matimg(img);
+    matimg = matimg *log(alpha);
+    IplImage ipltemp=matimg;
+    cvCopy(&ipltemp,kon);
+    return kon;
+
+}
+IplImage *croping(IplImage *img,IplImage *crop){
+    IplImage *krop = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,3);
+     CvSize ukuran = cvGetSize(crop);
+      unsigned char chan[3];
+    for(int i=0;i<ukuran.height;i++){
+        for(int j=0;j<ukuran.width;j++){
+            CvScalar pixelValimg = cvGet2D( img, i, j);
+            CvScalar pixelVal = cvGet2D( crop, i, j);
+            for(int k=0;k<3;k++){
+            chan[k] = pixelValimg.val[k]-pixelVal.val[k];
+            krop->imageData[i*krop->widthStep+3*j+k]=chan[k];
+            }
+        }
+    }
+
+}
