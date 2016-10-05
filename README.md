@@ -3,8 +3,8 @@
 Merupakan kumpulan fungsi untuk pemrosesan gambar dengan opencv dan c++<br/>
 
 Fungsi yang saat ini tersedia<br/>
-Thresholding
-Negative Image
-Contras Streching
-Croping with two image
+<b>Thresholding<br/>
+Negative Image<br/>
+Contras Streching<br/>
+Croping with two image<br/></b>
 
