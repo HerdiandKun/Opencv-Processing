@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1476172038 source:e:\kuliah\sem3\pcd\g64154018_tugas\main.cpp
+1476266454 source:e:\kuliah\sem3\pcd\g64154018_tugas\main.cpp
 	<cv.h>
 	<highgui.h>
 	<math.h>
@@ -21,12 +21,12 @@
 
 1475557496 e:\kuliah\sem3\pcd\g64154018_tugas\lib\cropping.h
 
-1476167287 e:\kuliah\sem3\pcd\g64154018_tugas\lib\rataan.h
+1476265752 e:\kuliah\sem3\pcd\g64154018_tugas\lib\rataan.h
 
-1476168171 e:\kuliah\sem3\pcd\g64154018_tugas\lib\rataan1.h
+1476265740 e:\kuliah\sem3\pcd\g64154018_tugas\lib\rataan1.h
 
-1476173736 e:\kuliah\sem3\pcd\g64154018_tugas\lib\gaussian.h
+1476265773 e:\kuliah\sem3\pcd\g64154018_tugas\lib\gaussian.h
 	<iostream>
 
-1476171489 e:\kuliah\sem3\pcd\g64154018_tugas\lib\laplace.h
+1476279233 e:\kuliah\sem3\pcd\g64154018_tugas\lib\laplace.h
 

@@ -28,7 +28,7 @@ int main(){
     cout<<"5. FILTER RATA RATA"<<endl;
     cout<<"6. FILTER GAUSSIAN 3x3"<<endl;
     cout<<"7. FILTER GAUSSIAN 7x7"<<endl;
-    cout<<"8. Cropping citra menggunakan image subtraction"<<endl;
+    cout<<"8. FILTER LAPLACE"<<endl;
     cout<<"Silakan pilih menu anda : ";
     cin>>pilih;
 

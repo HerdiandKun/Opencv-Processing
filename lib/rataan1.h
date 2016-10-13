@@ -2,6 +2,7 @@
 IplImage *rataan1(IplImage *img){
     IplImage *bin = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,3);
     CvSize ukuran = cvGetSize(img);
+    bin = img;
 
     int filter[3][3]={1,1,1,1,1,1,1,1,1};
     int sumfilter = 9;

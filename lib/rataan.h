@@ -5,7 +5,6 @@ Mat rataan(Mat img){
     int filter[3][3]={1,1,1,1,1,1,1,1,1};
     int sumfilter = 9;
     int n = 3/2;
-
        for(int x=n;x<img.rows-n;x++){
             for(int y=n;y<img.cols-n;y++){
                 for(int c=0;c<3;c++){
