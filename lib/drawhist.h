@@ -17,7 +17,7 @@ void drawHist(const vector<float>& data, Mat3b& dst,
         float h = rows - (scale * data[i]);
         rectangle(dst, Point(i*binSize, h),
                         Point((i+1)*binSize - 1, rows), (i%2) ?
-                        Scalar(0,100,255) : Scalar(0,0,255), CV_FILLED);
+                        Scalar(0,100,50) : Scalar(0,205,0), CV_FILLED);
     }
 
     if(rev_value >= 0)

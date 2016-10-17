@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1476678500 source:e:\kuliah\sem3\pcd\g64154018_tugas\main.cpp
+1476678606 source:e:\kuliah\sem3\pcd\g64154018_tugas\main.cpp
 	<cv.h>
 	<highgui.h>
 	<math.h>
@@ -34,5 +34,5 @@
 1476678169 e:\kuliah\sem3\pcd\g64154018_tugas\lib\histogram.h
 	"drawhist.h"
 
-1476671248 e:\kuliah\sem3\pcd\g64154018_tugas\lib\drawhist.h
+1476678764 e:\kuliah\sem3\pcd\g64154018_tugas\lib\drawhist.h
 
