@@ -9,17 +9,14 @@
 #include "lib/rataan1.h"
 #include "lib/gaussian.h"
 #include "lib/laplace.h"
+#include "lib/histogram.h"
 
 using namespace std;
 using namespace cv;
 
-int main(){
-    int pilih;
-    bool cekMat=false;
-    IplImage *out;
-    IplImage *img;
-    Mat image;
-    Mat hasil;
+int his,gbr, pilih;
+
+void menuutama(){
     system("CLS");
     cout<<"1. Segmentasi menggunakan image thresholding"<<endl;
     cout<<"2. Mengubah citra menjadi image negative"<<endl;
@@ -29,21 +26,51 @@ int main(){
     cout<<"6. FILTER GAUSSIAN 3x3"<<endl;
     cout<<"7. FILTER GAUSSIAN 7x7"<<endl;
     cout<<"8. FILTER LAPLACE"<<endl;
+    cout<<"9. HISTOGRAM"<<endl;
     cout<<"Silakan pilih menu anda : ";
     cin>>pilih;
+}
 
+void menuhis(){
+    cout<<"Pilih Histogram"<<endl;
+    cout<<"1. Histogram"<<endl;
+    cout<<"2. Histogram Kumlatif"<<endl;
+    cout<<"3. Histogram Normalization"<<endl;
+    cout<<"Silakan pilih gambar : ";
+
+    cin >> his;
+}
+
+void menugbr1(){
+    cout<<"Pilih Gambar Anda"<<endl;
+    cout<<"1. whitefly_pest"<<endl;
+    cout<<"2. acasia_disease"<<endl;
+    cout<<"Silakan pilih gambar : ";
+    cin >> gbr;
+}
+
+void menugbr2(){
+    cout<<"Pilih Gambar Anda"<<endl;
+    cout<<"1. Triawan Munaf"<<endl;
+    cout<<"2. Dian Sastro"<<endl;
+    cout<<"Silakan pilih gambar : ";
+    cin >> gbr;
+}
+
+int main(){
+    bool cekMat=false;
+    IplImage *out;
+    IplImage *img;
+    Mat image;
+    Mat hasil;
+    menuutama();
     if(pilih == 1){
          system("CLS");
-         int gbr,tres;
+         int tres;
         cout<<"=========THRESHOLD IMAGE=========="<<endl;
-        cout<<"Pilih Gambar Anda"<<endl;
-        cout<<"1. whitefly_pest"<<endl;
-        cout<<"2. acasia_disease"<<endl;
-        cout<<"Silakan pilih gambar : ";
-        cin >> gbr;
+        menugbr1();
         cout<<"Masukkan nilai threshold (0-255): ";
         cin >> tres;
-
         if(gbr == 1){
             img = cvLoadImage("img/whitefly_pest.jpg",CV_LOAD_IMAGE_COLOR);
             out = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,3);
@@ -55,13 +82,8 @@ int main(){
         out = treshold(img,tres);
     }else if(pilih == 2){
         system("CLS");
-         int gbr;
         cout<<"=========NEGATIVE IMAGE=========="<<endl;
-        cout<<"Pilih Gambar Anda"<<endl;
-        cout<<"1. whitefly_pest"<<endl;
-        cout<<"2. acasia_disease"<<endl;
-        cout<<"Silakan pilih gambar : ";
-        cin >> gbr;
+       menugbr1();
         if(gbr == 1){
             img = cvLoadImage("img/whitefly_pest.jpg",CV_LOAD_IMAGE_COLOR);
             out = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,3);
@@ -73,7 +95,7 @@ int main(){
         out = negative(img);
     }else if(pilih == 3){
         system("CLS");
-         int gbr,tipe,beta=0;
+         int tipe,beta=0;
          double kon,alpha=0.0;
          cout<<"============CONTRAS IMAGE/IMAGE STRETCHING=========="<<endl;
         cout<<"Pilih Tipe Kontras"<<endl;
@@ -88,11 +110,7 @@ int main(){
             cout<<"Silakan masukan betha (0-100) : ";
             cin >> beta;
         }
-        cout<<"Pilih Gambar Anda"<<endl;
-        cout<<"1. whitefly_pest"<<endl;
-        cout<<"2. acasia_disease"<<endl;
-        cout<<"Silakan pilih gambar : ";
-        cin >> gbr;
+        menugbr1();
         //cout<<"Masukkan Kontras (1.0-3.0) : ";
         //cin >>kon;
         if(gbr == 1){
@@ -118,12 +136,8 @@ int main(){
         system("CLS");
          cout<<"=========IMAGE FILTER RATA-RATA=========="<<endl;
         cekMat = false;
-        int gbr;
-        cout<<"Pilih Gambar Anda"<<endl;
-        cout<<"1. Triawan Munaf"<<endl;
-        cout<<"2. Dian Sastro"<<endl;
-        cout<<"Silakan pilih gambar : ";
-        cin >> gbr;/*
+        menugbr2();
+        /*
         if(gbr == 1){
             image = imread("img/daun.jpg",1);
         }else{
@@ -144,12 +158,7 @@ int main(){
         system("CLS");
          cout<<"=========IMAGE FILTER GAUSSIAN 3x3=========="<<endl;
         cekMat = false;
-        int gbr;
-        cout<<"Pilih Gambar Anda"<<endl;
-        cout<<"1. Triawan Munaf"<<endl;
-        cout<<"2. Dian Sastro"<<endl;
-        cout<<"Silakan pilih gambar : ";
-        cin >> gbr;
+       menugbr2();
         if(gbr == 1){
             img = cvLoadImage("img/daun.jpg",CV_LOAD_IMAGE_COLOR);
             out = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,3);
@@ -163,12 +172,7 @@ int main(){
         system("CLS");
          cout<<"=========IMAGE FILTER GAUSSIAN 7x7=========="<<endl;
         cekMat = false;
-        int gbr;
-        cout<<"Pilih Gambar Anda"<<endl;
-        cout<<"1. Triawan Munaf"<<endl;
-        cout<<"2. Dian Sastro"<<endl;
-        cout<<"Silakan pilih gambar : ";
-        cin >> gbr;
+        menugbr2();
         if(gbr == 1){
             img = cvLoadImage("img/daun.jpg",CV_LOAD_IMAGE_COLOR);
             out = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,3);
@@ -184,12 +188,8 @@ int main(){
         system("CLS");
          cout<<"=========IMAGE FILTER LAPLACE=========="<<endl;
         cekMat = false;
-        int gbr;
-        cout<<"Pilih Gambar Anda"<<endl;
-        cout<<"1. Triawan Munaf"<<endl;
-        cout<<"2. Dian Sastro"<<endl;
-        cout<<"Silakan pilih gambar : ";
-        cin >> gbr;/*
+        menugbr2();
+        /*
         if(gbr == 1){
             image = imread("img/daun.jpg",1);
         }else{
@@ -206,7 +206,34 @@ int main(){
         }
         cvShowImage("Gambar Asli",img);
         out = laplace(img);
-    }else{
+    }else if(pilih == 9){
+        system("CLS");
+         cout<<"=========IMAGE HISTOGRAM=========="<<endl;
+        cekMat = true;
+        int gbr;
+        menugbr2();
+            if(gbr == 1){
+                image = imread("img/daun.jpg",CV_LOAD_IMAGE_GRAYSCALE);
+                menuhis();
+                imshow("Gambar Asli",image);
+                if(his == 1)
+                    hasil = histogram(image);
+                else if(his ==  2)
+                    hasil = histogramkum(image);
+                else
+                    hasil = histogramnormal(image);
+            }else{
+                image = imread("img/dian_sastro.jpg",CV_LOAD_IMAGE_GRAYSCALE);
+                menuhis();
+                imshow("Gambar Asli",image);
+                if(his == 1)
+                    hasil = histogram(image);
+                else if(his ==  2)
+                    hasil = histogramkum(image);
+                else
+                    hasil = histogramnormal(image);
+            }
+        }else{
         cout << "Pilihan tidak dikenali";
     }
     if(cekMat){
