@@ -10,10 +10,12 @@
 #include "lib/gaussian.h"
 #include "lib/laplace.h"
 #include "lib/histogram.h"
+#include "lib/minkowski.h"
 
 using namespace std;
 using namespace cv;
 
+bool print = false;
 int his,gbr, pilih;
 
 void menuutama(){
@@ -26,7 +28,8 @@ void menuutama(){
     cout<<"6. FILTER GAUSSIAN 3x3"<<endl;
     cout<<"7. FILTER GAUSSIAN 7x7"<<endl;
     cout<<"8. FILTER LAPLACE"<<endl;
-    cout<<"9. HISTOGRAM"<<endl;
+    cout<<"9. Histogram"<<endl;
+    cout<<"10. Minkowski Distance"<<endl;
     cout<<"Silakan pilih menu anda : ";
     cin>>pilih;
 }
@@ -236,13 +239,20 @@ int main(){
                 else
                     hasil = banding(image);
             }
+        }else if(pilih == 10){
+            print = true;
+            Mat image2= imread("img/dian_sastro_salt.jpg",CV_LOAD_IMAGE_GRAYSCALE);
+            image = imread("img/dian_sastro.jpg",CV_LOAD_IMAGE_GRAYSCALE);
+            hitminkowsky(image,image2);
         }else{
         cout << "Pilihan tidak dikenali";
     }
-    if(cekMat){
-        imshow("Hasil Pengolahan", hasil);
-    }else{
-        cvShowImage("Hasil Pengolahan",out);
+    if(!print){
+        if(cekMat){
+            imshow("Hasil Pengolahan", hasil);
+        }else{
+            cvShowImage("Hasil Pengolahan",out);
+        }
     }
     cvWaitKey(0);
     return 0;

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1476762480 source:e:\kuliah\sem3\pcd\g64154018_tugas\main.cpp
+1476774832 source:e:\kuliah\sem3\pcd\g64154018_tugas\main.cpp
 	<cv.h>
 	<highgui.h>
 	<math.h>
@@ -12,6 +12,7 @@
 	"lib/gaussian.h"
 	"lib/laplace.h"
 	"lib/histogram.h"
+	"lib/minkowski.h"
 
 1476165848 e:\kuliah\sem3\pcd\g64154018_tugas\lib\threshold.h
 
@@ -35,4 +36,7 @@
 	"drawhist.h"
 
 1476763086 e:\kuliah\sem3\pcd\g64154018_tugas\lib\drawhist.h
+
+1476774895 e:\kuliah\sem3\pcd\g64154018_tugas\lib\minkowski.h
+	<iostream>
 
