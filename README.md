@@ -1,6 +1,6 @@
 # Opencv-Processing
 
-Merupakan kumpulan fungsi untuk pemrosesan gambar dengan opencv dan c++<br/>
+Merupakan kumpulan fungsi untuk pemrosesan citra dengan opencv dan c++<br/>
 
 Fungsi yang saat ini tersedia<br/>
 <b>Thresholding<br/>
@@ -10,5 +10,7 @@ Croping with two image<br/>
 Filter Smoothing<br/>
 Filter Sharpening With Gaussian 3x3<br/>
 Croping Laplace<br/>
-Histogram<br/></b>
+Histogram<br/>
+Cek Kemiripan Citra dengan Minkowski Distance Sederhana<br/> (gak tau nih bener atau enggak :v)
+</b>
 
