@@ -109,13 +109,12 @@ void bawaan(Mat src)
   }
 
   /// Display
-  namedWindow("calcHist Demo", CV_WINDOW_AUTOSIZE );
-  imshow("calcHist Demo", histImage );
+  namedWindow("Histogram Library", CV_WINDOW_AUTOSIZE );
+  imshow("Histogram Library", histImage );
 }
 
 Mat banding(Mat src){
     Mat3b plotHis = histogram(src);
     bawaan(src);
-
     return plotHis;
 }
