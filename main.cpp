@@ -210,7 +210,6 @@ int main(){
         system("CLS");
          cout<<"=========IMAGE HISTOGRAM=========="<<endl;
         cekMat = true;
-        int gbr;
         menugbr2();
             if(gbr == 1){
                 image = imread("img/daun.jpg",CV_LOAD_IMAGE_GRAYSCALE);
@@ -220,8 +219,10 @@ int main(){
                     hasil = histogram(image);
                 else if(his ==  2)
                     hasil = histogramkum(image);
-                else
+                else if(his ==  3)
                     hasil = histogramnormal(image);
+                else
+                    hasil = banding(image);
             }else{
                 image = imread("img/dian_sastro.jpg",CV_LOAD_IMAGE_GRAYSCALE);
                 menuhis();
@@ -230,8 +231,10 @@ int main(){
                     hasil = histogram(image);
                 else if(his ==  2)
                     hasil = histogramkum(image);
-                else
+                else if(his ==  3)
                     hasil = histogramnormal(image);
+                else
+                    hasil = banding(image);
             }
         }else{
         cout << "Pilihan tidak dikenali";
