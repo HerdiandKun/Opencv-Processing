@@ -198,7 +198,7 @@ int main(){
          cout<<"=========IMAGE HISTOGRAM=========="<<endl;
         cekMat = true;
         menugbrhis();
-        }else if(pilih == 10){
+    }else if(pilih == 10){
             print = true;
             string citra1,citra2;
             cout << "Masukkan Nama Citra 1 : " ;
@@ -209,7 +209,8 @@ int main(){
             image = imread("img/" + citra2,CV_LOAD_IMAGE_GRAYSCALE);
             hitminkowsky(image,image2);
 
-        }else{
+    }else{
+        print = true;
         cout << "Pilihan tidak dikenali";
     }
     if(!print){
