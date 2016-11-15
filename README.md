@@ -13,7 +13,7 @@ Filter Smoothing<br/>
 Filter Sharpening With Gaussian 3x3<br/>
 Croping Laplace<br/>
 Histogram<br/>
-Minkowski Distance (not sure)
+Minkowski Distance (not sure) <br/>
 Fourier Transform with Litle Image (not sure)
 </b>
 
