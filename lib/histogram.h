@@ -62,9 +62,9 @@ unsigned char *input = (unsigned char*)(img.data);
     vector<double> kum = histB;
     Mat3b  plotKum;
      for (int i = 0; i < histB.size(); ++i) {
-        kum[i] = histB[i] / (img.rows * img.cols) *300;
+        kum[i] = histB[i] / (img.rows * img.cols);
     }
-    drawHist(kum, plotKum, 3, 300,10);
+    drawHist(kum, plotKum, 3, 300,0.1);
 
     return plotKum;
 }

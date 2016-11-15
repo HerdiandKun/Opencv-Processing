@@ -1,118 +1,5 @@
-#include<cv.h>
-#include<highgui.h>
-#include <math.h>
-#include "lib/threshold.h"
-#include "lib/negative.h"
-#include "lib/contras.h"
-#include "lib/cropping.h"
-#include "lib/rataan.h"
-#include "lib/rataan1.h"
-#include "lib/gaussian.h"
-#include "lib/laplace.h"
-#include "lib/histogram.h"
-#include "lib/minkowski.h"
-
-using namespace std;
-using namespace cv;
-
-bool print = false;
-int his,gbr, pilih;
-bool cekMat=false;
-IplImage *out;
-IplImage *img;
-Mat image;
-Mat hasil;
-
-void menuutama(){
-    system("CLS");
-    cout<<"1. Segmentasi menggunakan image thresholding"<<endl;
-    cout<<"2. Mengubah citra menjadi image negative"<<endl;
-    cout<<"3. Meningkatkan kontrast citra/contract stretching"<<endl;
-    cout<<"4. Cropping citra menggunakan image subtraction"<<endl;
-    cout<<"5. FILTER RATA RATA"<<endl;
-    cout<<"6. FILTER GAUSSIAN 3x3"<<endl;
-    cout<<"7. FILTER GAUSSIAN 7x7"<<endl;
-    cout<<"8. FILTER LAPLACE"<<endl;
-    cout<<"9. Histogram"<<endl;
-    cout<<"10. Minkowski Distance"<<endl;
-    cout<<"Silakan pilih menu anda : ";
-    cin>>pilih;
-}
-
-void menuhis(){
-    cout<<"Pilih Histogram"<<endl;
-    cout<<"1. Histogram"<<endl;
-    cout<<"2. Histogram Kumlatif"<<endl;
-    cout<<"3. Histogram Normalization"<<endl;
-    cout<<"4. Perbandingan Histogram"<<endl;
-    cout<<"Silakan pilih gambar : ";
-
-    cin >> his;
-}
-
-void menugbr1(){
-    cout<<"Pilih Gambar Anda"<<endl;
-    cout<<"1. whitefly_pest"<<endl;
-    cout<<"2. acasia_disease"<<endl;
-    cout<<"Silakan pilih gambar : ";
-    cin >> gbr;
-     if(gbr == 1){
-            img = cvLoadImage("img/whitefly_pest.jpg",CV_LOAD_IMAGE_COLOR);
-            out = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,3);
-        }else{
-            img = cvLoadImage("img/acasia_disease.jpg",CV_LOAD_IMAGE_COLOR);
-            out = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,3);
-        }
-}
-
-void menugbr2(){
-    cout<<"Pilih Gambar Anda"<<endl;
-    cout<<"1. Triawan Munaf"<<endl;
-    cout<<"2. Dian Sastro"<<endl;
-    cout<<"Silakan pilih gambar : ";
-    cin >> gbr;
-        if(gbr == 1){
-            img = cvLoadImage("img/daun.jpg",CV_LOAD_IMAGE_COLOR);
-            out = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,3);
-        }else{
-            img = cvLoadImage("img/dian_sastro.jpg",CV_LOAD_IMAGE_COLOR);
-            out = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,3);
-        }
-}
-
-void menugbrhis(){
-    cout<<"Pilih Gambar Anda"<<endl;
-    cout<<"1. Triawan Munaf"<<endl;
-    cout<<"2. Dian Sastro"<<endl;
-    cout<<"Silakan pilih gambar : ";
-    cin >> gbr;
-            if(gbr == 1){
-                image = imread("img/daun.jpg",CV_LOAD_IMAGE_GRAYSCALE);
-                menuhis();
-                imshow("Gambar Asli",image);
-                if(his == 1)
-                    hasil = histogram(image);
-                else if(his ==  2)
-                    hasil = histogramkum(image);
-                else if(his ==  3)
-                    hasil = histogramnormal(image);
-                else
-                    hasil = banding(image);
-            }else{
-                image = imread("img/dian_sastro.jpg",CV_LOAD_IMAGE_GRAYSCALE);
-                menuhis();
-                imshow("Gambar Asli",image);
-                if(his == 1)
-                    hasil = histogram(image);
-                else if(his ==  2)
-                    hasil = histogramkum(image);
-                else if(his ==  3)
-                    hasil = histogramnormal(image);
-                else
-                    hasil = banding(image);
-            }
-
-}
+#include "config/setting.h"
+#include "config/menu.h"
 
 int main(){
     menuutama();
@@ -199,7 +86,7 @@ int main(){
         cekMat = true;
         menugbrhis();
     }else if(pilih == 10){
-            print = true;
+            print = false;
             string citra1,citra2;
             cout << "Masukkan Nama Citra 1 : " ;
             cin >> citra1;
@@ -209,11 +96,15 @@ int main(){
             image = imread("img/" + citra2,CV_LOAD_IMAGE_GRAYSCALE);
             hitminkowsky(image,image2);
 
+    }else if(pilih == 11){
+            print = false;
+            cout << "=========FOURIER TRANSFORM==========" ;
+            menufourier();
     }else{
-        print = true;
+        print = false;
         cout << "Pilihan tidak dikenali";
     }
-    if(!print){
+    if(print){
         if(cekMat){
             imshow("Hasil Pengolahan", hasil);
         }else{

@@ -1,8 +1,3 @@
-#include <iostream>
-
-using namespace std;
-using namespace cv;
-
 void hitminkowsky(Mat src1, Mat src2){
 unsigned char *input1 = (unsigned char*)(src1.data);
 unsigned char *input2 = (unsigned char*)(src2.data);
