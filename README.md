@@ -1,8 +1,10 @@
 # Opencv-Processing
 
-Merupakan kumpulan fungsi untuk pemrosesan citra dengan opencv dan c++<br/>
+Is a set of functions for processing images with opencv and c++
 
-Fungsi yang saat ini tersedia<br/>
+Please comment if you find any error or mistake algorithms
+
+Available functions : <br/>
 <b>Thresholding<br/>
 Negative Image<br/>
 Contras Streching<br/>
@@ -11,6 +13,7 @@ Filter Smoothing<br/>
 Filter Sharpening With Gaussian 3x3<br/>
 Croping Laplace<br/>
 Histogram<br/>
-Cek Kemiripan Citra dengan Minkowski Distance Sederhana<br/> (gak tau nih bener atau enggak :v)
+Minkowski Distance (not sure)
+Fourier Transform with Litle Image (not sure)
 </b>
 
